@@ -12,4 +12,5 @@ The contents of the metadata include:
 5. In case of continuous stream, a duration for which the amount is given.
 
 To start the project, you should have Metamask configured in your device.
-```npm start``` in the project directory will start the project in your browser.
+```npm start``` 
+in the project directory will start the project in your browser.
