@@ -9,11 +9,11 @@ The contents of the metadata include:
 2. Currency: ETHx, fDAI or fTUSD 
 3. Payment amount
 4. Deposit address
-5. In case of continuous stream, a duration for which the amount is given.
+5. In the case of a continuous stream, a duration for which the amount is given.
 
-The payment info creator uploads the metadata on IPFS. The ID that is shown to the user after upload can be shared to other users to get payment confirming to the given metadata.
+The payment info creator uploads the metadata on IPFS.  After upload, the ID that is shown to the user can be shared with other users to get payment confirming to the given metadata.
 
-An other user can then enter the ID in the Pay section to pay.
+Another user can then enter the ID in the Pay section to pay.
 
 To start the project, you should have Metamask configured in your device.
 ```npm start``` 
