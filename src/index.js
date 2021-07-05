@@ -5,6 +5,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+require('./api/ipfsUtils.js').initIpfs();
+// ipfs.create().then((_node) => {
+//   node = _node;
+//   let result = node.add({ 'Price': 200 });
+//   result.then(() => console.log(result.cid.toString()));
+// });
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

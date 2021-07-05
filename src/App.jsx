@@ -1,43 +1,32 @@
 import React, { useState, useEffect } from 'react';
-
 import { Route } from 'react-router-dom';
 import CreatePayment from './pages/CreatePayment';
-import Home from './pages/Home';
+
 import Payments from './pages/Payments';
 import NavBar from './components/NavBar';
-// react-icons
-const ethers = require('ethers');
-let provider, signer;
-
-async function connectWallet() {
-  window.ethereum.enable().then(provider = new ethers.providers.Web3Provider(window.ethereum));
-  signer = await provider.getSigner();
-  let signerAddress = signer.getAddress();
-  return signerAddress;
-}
+import { connectWallet, connectSuperfluid, connectAll } from './api/ethersSf';
 
 function App() {
   let [signerAdx, updateSignerAdx] = useState('Not available');
   let [page, updatePage] = useState(0);
 
-  useEffect(() => connectWallet().then((address) => updateSignerAdx(address)));
+  useEffect(() => connectAll().then((res) => {
+    updateSignerAdx(res[0])
+  }))
+
   return (
     <div className="App">
-      <NavBar items={[{ title: 'Home', href: '/' }, { title: 'Create', href: '/create' }, { title: 'Pay', href: '/pay' }]} state={[page, updatePage]} />
+      <NavBar items={[{ title: 'Create', href: '/' }, { title: 'Pay', href: '/pay' }]} state={[page, updatePage]} colors={['cyan']} />
       <div className="px-4">
         <Route exact path="/">
-          <Home />
-        </Route>
-
-        <Route path='/create'>
           <CreatePayment signerAdx={signerAdx} />
         </Route>
 
         <Route path='/pay'>
-          <Payments />
+          <Payments signerAdx={signerAdx} />
         </Route>
       </div>
-    </div >
+    </div>
   );
 }
 
