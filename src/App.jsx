@@ -4,7 +4,7 @@ import CreatePayment from './pages/CreatePayment';
 
 import Payments from './pages/Payments';
 import NavBar from './components/NavBar';
-import { connectWallet, connectSuperfluid, connectAll } from './api/ethersSf';
+import { connectAll } from './api/ethersSf';
 
 function App() {
   let [signerAdx, updateSignerAdx] = useState('Not available');
