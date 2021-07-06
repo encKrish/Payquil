@@ -3,7 +3,7 @@ import { sf, getflowRate, transferERC20 } from '../api/ethersSf';
 
 const ReceiptView = ({ data, signerAdx, setSuccess }) => {
     let tokenName = ['ETHx', 'fDAIx', 'fTUSDx'][data.currency]
-    if ((tokenName != 'ETHx') && (data.type == 0))
+    if ((tokenName !== 'ETHx') && (data.type === 0))
         tokenName = tokenName.slice(0, -1);
     const payBill = async () => {
         let amount = getflowRate(data.amount, data.contPayState);
@@ -13,8 +13,8 @@ const ReceiptView = ({ data, signerAdx, setSuccess }) => {
             setSuccess(1);
         }
         else {
-            let thisUser = sf.user({ address: signerAdx, token: sf.tokens[tokenName].address });
-            let creator = sf.user({ address: data.depositAccount, token: sf.tokens[tokenName].address });
+            let thisUser = sf.user({ address: signerAdx, token: sf.tokens.fDAIx.address });
+            // let creator = sf.user({ address: data.depositAccount, token: sf.tokens[tokenName].address });
             await thisUser.flow({ recipient: data.depositAccount, flowRate: amount });
             console.log(`Successfully started flow of ${amount} ${tokenName} to ${data.depositAccount}.`)
             setSuccess(1);

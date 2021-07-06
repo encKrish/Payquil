@@ -2,8 +2,31 @@ const IPFS = require('ipfs');
 export let node = undefined;
 
 export async function initIpfs() {
+	const options = {
+		 "allowNew": true,
+     "API": {
+        "HTTPHeaders": {
+            "Access-Control-Allow-Origin": [
+                "*"
+            ],
+            "Access-Control-Allow-Methods": [
+                "GET",
+                "POST"
+            ],
+            "Access-Control-Allow-Headers": [
+                "Authorization"
+            ],
+            "Access-Control-Expose-Headers": [
+                "Location"
+            ],
+            "Access-Control-Allow-Credentials": [
+                "true"
+            ]
+        }
+     }
+    }
     try {
-       node = await  IPFS.create({ allowNew: false })
+       node = await  IPFS.create(options)
     }
     catch { return node };
     return node

@@ -15,8 +15,8 @@ export async function connectWallet() {
 export async function connectSuperfluid(provider) {
     await window.ethereum.enable();
     sf = new SuperfluidSDK.Framework({
-        version: "v1",
         ethers: new Web3Provider(window.ethereum),
+        tokens: ['ETHx', 'fDAI', 'fTUSD', 'fDAIx', 'fTUSDx']
     });
     await sf.initialize();
 }
