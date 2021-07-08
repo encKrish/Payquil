@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { sf, getflowRate, transferERC20 } from '../api/ethersSf';
 
 const ReceiptView = ({ data, signerAdx, setSuccess }) => {

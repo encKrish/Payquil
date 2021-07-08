@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SelectorGroup from '../components/SelectorGroup';
 import Switcher from '../components/Switcher';
-import ipfs from 'ipfs';
-import { getSelfAdx, initIpfs, sendToIpfs, sendToIpns } from '../api/ipfsUtils';
+import { getSelfAdx, sendToIpfs, sendToIpns } from '../api/ipfsUtils';
 
 getSelfAdx().then(res => console.log('IPNS address: ', res[0].id));
 

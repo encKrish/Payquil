@@ -1,4 +1,3 @@
-import React from 'react';
 
 const SelectorGroup = ({ items, state, title, colors, space }) => {
     if (colors === undefined) colors = ['red'];
